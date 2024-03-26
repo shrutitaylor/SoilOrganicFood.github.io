@@ -28,6 +28,7 @@ function App() {
           <div className="container my-3">
             <Routes>
               <Route path="/" element={<Home username={username} />} />
+              <Route path="/SoilOrganicFood.github.io" element={<Home username={username} />} />
               <Route path="/login" element={<Login loginUser={loginUser} />} />
               <Route path="/profile" element={<MyProfile username={username} />} />
               <Route path="/forum" element={<Forum username={username} />} />
