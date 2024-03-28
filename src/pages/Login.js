@@ -47,7 +47,7 @@ function Login(props) {
 
   return (
     <div>
-      <h1>Login</h1>
+      {/* <h1>Login</h1> */}
       <hr />
       <div className="row">
         <div className="col-md-6">

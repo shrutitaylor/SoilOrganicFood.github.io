@@ -21,7 +21,7 @@ function App() {
   }
 
   return (
-    <div className="d-flex flex-column min-vh-100" style={{ fontFamily: 'Elsie Swash Caps, serif' ,fontWeight: 700, fontSize:'20px'}}>
+    <div className="d-flex flex-column min-vh-100" style={{ fontFamily: "Syne, sans-serif",  fontWeight: '400',fontStyle: "normal",}}>
       <Router>
         <Navbar username={username} logoutUser={logoutUser} />
         <main role="main">
