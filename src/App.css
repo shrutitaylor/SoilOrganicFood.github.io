@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  font-family: "Elsie Swash Caps", serif;
+  font-family: "Syne", sans-serif;
+  font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
   
@@ -39,4 +40,21 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Footer section */
+
+.bck_red {
+  background: #ff4800;
+}
+footer {
+  padding: 50px 0px;
+  text-align: center;
+  font-size: 60px;
+  color: #ffffff;
+  background: red;
+}
+
+footer .footer_copyright {
+  font-size: 18px;
 }
