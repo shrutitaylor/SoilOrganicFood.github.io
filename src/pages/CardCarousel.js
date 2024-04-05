@@ -17,6 +17,11 @@ const CardCarousel = ({ cards }) => {
   const visibleCards = cards.slice(currentIndex, currentIndex + 3);
 
   return (
+    <>
+    <div style={{alignItems:'center', display:'flex',flexDirection:'column'}}>
+    <h2 style={{color: '#5d2510', fontWeight:'800'}}>Products</h2>
+      <h3>Want to know what we offer?</h3>
+      </div>
     <div className="carousel-container">
       <button className="carousel-control prev" style={{fontSize:'60px'}}  onClick={goToPrevSlide}  >&#10094;</button>
       <div  className="slides-container">
@@ -26,19 +31,19 @@ const CardCarousel = ({ cards }) => {
             <h3>{card.title}</h3>
             
               <div class="product-bottom-details">
-                <div class="product-price">$23.99<small> per 250g</small></div>
+                <div class="product-price">${card.price}<small> per {card.quantity}</small></div>
                 <div class="product-links">
-                  <a href="/"><i class="material-icons">favorite_border</i></a>
-                  <a><i class="material-icons shopping_cart">shopping_cart</i></a>
+                  <a href='/' title="Add to Favorites"><i class="material-icons" >favorite_border</i></a>
+                  <a href='/' title='Add to Cart'><i class="material-icons">shopping_cart</i></a>
                 </div>
               </div>
            
           </div>
         ))}
       </div>
-      <button className="carousel-control next" style={{fontSize:'60px'}} onClick={goToNextSlide}>&#10095;<span class="material-icons">
-</span></button>
+      <button className="carousel-control next" style={{fontSize:'60px'}} onClick={goToNextSlide}>&#10095;</button>
     </div>
+    </>
   );
 };
 

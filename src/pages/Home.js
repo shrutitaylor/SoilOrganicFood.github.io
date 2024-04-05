@@ -6,53 +6,53 @@ function Home(props) {
     {
       title: "Almonds",
       content: "This is the content of card 1.",
-      image:"https://images.unsplash.com/photo-1508061253366-f7da158b6d46?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      image:"https://images.unsplash.com/photo-1508061253366-f7da158b6d46?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      price:"12.9",
+      quantity:'500g'
     },
     {
       title: "Brown Rice",
       content: "This is the content of card 2.",
-      image:"https://plus.unsplash.com/premium_photo-1671130295823-78f170465794?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      image:"https://plus.unsplash.com/premium_photo-1671130295823-78f170465794?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      price:"12.9",
+      quantity:'500g'
     },
     {
       title: "Red Kidney Beans",
       content: "This is the content of card 3.",
-      image:"https://plus.unsplash.com/premium_photo-1671130295242-582789bd9861?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      image:"https://plus.unsplash.com/premium_photo-1671130295242-582789bd9861?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      price:"12.9",
+      quantity:'500g'
     },
     {
       title: "Green Beans",
       content: "This is the content of card 3.",
-      image:"https://images.unsplash.com/photo-1649257171206-37625b1f3b2f?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      image:"https://images.unsplash.com/photo-1649257171206-37625b1f3b2f?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      price:"12.9",
+      quantity:'500g'
     },
     {
       title: "Card 5",
       content: "This is the content of card 3.",
-      image:"https://picsum.photos/200/300"
+      image:"https://picsum.photos/200/300",
+      price:"12.9",
+      quantity:'500g'
     },
     {
       title: "Card 5",
       content: "This is the content of card 3.",
-      image:"https://picsum.photos/200/300"
+      image:"https://picsum.photos/200/300",
+      price:"12.9",
+      quantity:'500g'
     },
     {
       title: "Card 5",
       content: "This is the content of card 3.",
-      image:"https://picsum.photos/200/300"
+      image:"https://picsum.photos/200/300",
+      price:"12.9",
+      quantity:'500g'
     },
-    {
-      title: "Card 5",
-      content: "This is the content of card 3.",
-      image:"https://picsum.photos/200/300"
-    },
-    {
-      title: "Card 5",
-      content: "This is the content of card 3.",
-      image:"https://picsum.photos/200/300"
-    },
-    {
-      title: "Card 5",
-      content: "This is the content of card 3.",
-      image:"https://picsum.photos/200/300"
-    },
+    
     // Add more cards as needed
   ];
   const slides = [
@@ -146,33 +146,6 @@ function Home(props) {
 
     </section>
    
-    
-   
-    <section className="main intro" style={{ marginTop: '0', paddingTop: '0', position: 'relative' }}>
-     
-    <div className="card_space">
-    <div className="card">
-      <img  src='https://images.unsplash.com/photo-1683236030917-0552b3eb8c00?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt="hi iam shruti" />
-      <div className="card_content">
-        <h2>Organic products support good health</h2>
-      </div>
-    </div>
-    <div className="card">
-      <img  src='https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1633&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt="hi iam shruti" />
-      <div className="card_content">
-          <h2>Organic has something for everyone</h2>
-      </div>
-    </div>
-    <div className="card">
-        <img src='https://images.unsplash.com/photo-1511942374870-deb388a44425?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt="hi iam shruti" />
-        <div className="card_content" >
-          <h2 >Organic prohibits the use of chemical additives</h2>
-          {/* <p>Organic food contains no artificial flavors, colors or preservatives. Minor ingredients used in organic food must come from a list of approved substances that have been evaluated for safety and their impact on both human and environmental health.</p> */}
-        </div>
-      </div>
-     </div>
-    
-    </section>
     <CardCarousel cards={cardsData} />
     </>
   );
