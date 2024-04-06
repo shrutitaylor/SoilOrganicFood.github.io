@@ -1,0 +1,35 @@
+.health{
+
+    display: flex;
+    flex-wrap: wrap;
+    margin: 70px 100px 70px 100px;
+    justify-content: space-evenly;
+    font-weight: 600;
+}
+
+.health .accordian{
+    background-color: #cbb89d;
+    font-weight: 600;
+    color:'#412f26';
+    
+}
+.health .accordian-split{
+    background-color: #80552221;
+    font-weight: 600;
+    color:'#412f26';
+    
+}
+
+.accordian-details{
+    flex-direction: row;
+    display:flex;
+    margin:0 70px 0 30px;
+    gap:30px
+}
+
+.accordian-details img{
+    width: 200px;
+    height:100px;
+    object-fit:cover;
+    border-radius:4px;
+}

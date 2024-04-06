@@ -1,15 +1,10 @@
 import React from "react";
 import { default as sliderClick } from 'react-card-slider-component';
 import CardCarousel from "./CardCarousel";
+import AccordionUsage from "./HealthBenefits";
 function Home(props) {
   const cardsData = [
-    {
-      title: "Almonds",
-      content: "This is the content of card 1.",
-      image:"https://images.unsplash.com/photo-1508061253366-f7da158b6d46?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      price:"12.9",
-      quantity:'500g'
-    },
+    
     {
       title: "Brown Rice",
       content: "This is the content of card 2.",
@@ -79,10 +74,10 @@ function Home(props) {
         {/* Your image */}
         {/* <img style={{ width: '100vw',height:'100vh', objectFit:'cover'}} src='https://images.unsplash.com/photo-1498522271744-cdd435c13f24?q=80&w=2075&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt="hi iam shruti" /> */}
         <img style={{ width: '98.5vw',height:'100vh', objectFit:'cover'}} src='https://images.unsplash.com/photo-1620217349590-7b4e3ec6898a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' />
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100vh', backgroundColor:'rgba(0, 0, 0, 0.3)', color: "#ffffff", display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-        <h3 style={{ fontSize:'4em', color: "#ede1d2", position: "absolute", bottom: "50vh", left: "50%", transform: "translateX(-50%)" }}>
-          Premium Organic and FResh</h3>
-          <p style={{color:'#cbb89d', position: "absolute",width: '50vw',bottom: "30vh",textAlign:'center'}}>
+        <div style={{  position: 'absolute',textAlign:'center', top: 0, left: 0, width: '100%', height: '100vh', backgroundColor:'rgba(0, 0, 0, 0.3)', color: "#ffffff", display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+        <h3 style={{ fontSize:'5.5vw', color: "#ede1d2", bottom: "50vh", left: "50%", }}>
+          Premium Organic<br></br> and FResh</h3>
+          <p style={{color:'#cbb89d', width: '50vw',bottom: "30vh", fontSize:'1.2vw'}}>
           Welcome to Soil, where we champion the beauty of organic living. Our mission is simple: to provide you with the freshest, most nutritious organic foods available. From farm to table, we prioritize quality, sustainability, and ethical farming practices. Join us in embracing a healthier, more vibrant lifestyle with Soil – your trusted source for all things organic.</p>
         </div>
       </div>
@@ -131,22 +126,18 @@ function Home(props) {
     
     <section className="main intro" style={{ marginTop: '50px', paddingTop: '0', position: 'relative' }}>
       <div className="intro_section">
-        {/* <img style={{ width: '98.8vw', height: '90vh', objectFit: 'cover' }} src='https://images.unsplash.com/photo-1592201426550-83c4be24a0a7?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'></img> */}
         <img style={{ width: '98.5vw', height: '90vh', objectFit: 'cover' }} src='https://images.unsplash.com/photo-1633932850276-4382027c868a?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'></img>
-        
-        <div style={{  width:'55%',position: 'absolute', top: '50%', right: '15%', transform: 'translate(-50%, -50%)', textAlign: 'left', color: "#0f2e0b" }}>
-          <h4 style={{color:'#6a6f4c', fontWeight:600}}>Welcome to Soil</h4>
-          <h2 style={{textAlign:'left',fontWeight:'800'}}> Your Source for Organic<br></br> Goodness!</h2>
-          <p style={{fontWeight:600}}>At Soil, we believe in the power of nature to nourish and sustain us. Our passion lies in providing you with the freshest, highest quality organic foods, sourced directly from trusted farmers who share our commitment to sustainable agriculture.<br></br>
-          <br></br>Explore our bountiful selection of organic fruits, vegetables, grains, and more, carefully curated to bring the goodness of the earth to your table. Whether you're a seasoned organic enthusiast or just beginning your journey toward healthier living, Soil is here to support you every step of the way.<br></br>
-          <br></br>Join us in embracing a lifestyle that celebrates the vitality of organic farming, fosters community connections, and promotes the well-being of both people and planet. Together, let's cultivate a healthier, happier world, one organic bite at a time.</p>
-          
+        <div style={{  position: 'absolute', top: '50%',width:'100%', transform: 'translate(5%, -50%)', textAlign: 'left', backgroundColor: "rgba(0, 0, 0, 0.379)" ,padding:'20px'}}>
+          <h4 style={{ color:'#cbb89d', fontWeight:600, fontSize: '1.7vw' }}>Welcome to Soil</h4>
+          <h2 style={{ textAlign:'left', fontWeight:'800', fontSize: '3vw' }}> Your Source for Organic<br></br> Goodness!</h2>
+          <p style={{ fontWeight:600, fontSize: '1.2vw', color:'white' }}>At Soil, we believe in the power of nature to nourish and sustain us. Our passion lies in providing you with the freshest, highest quality organic foods, sourced directly from trusted farmers who share our commitment to sustainable agriculture.<br></br><br></br>Explore our bountiful selection of organic fruits, vegetables, grains, and more, carefully curated to bring the goodness of the earth to your table. Whether you're a seasoned organic enthusiast or just beginning your journey toward healthier living, Soil is here to support you every step of the way.<br></br><br></br>Join us in embracing a lifestyle that celebrates the vitality of organic farming, fosters community connections, and promotes the well-being of both people and planet. Together, let's cultivate a healthier, happier world, one organic bite at a time.</p>
         </div>
       </div>
-
     </section>
+
    
     <CardCarousel cards={cardsData} />
+    <AccordionUsage/>
     </>
   );
 }

@@ -56,7 +56,18 @@ code {
   max-width: 1200px;
   
 }
+/* Adjust font sizes for different screen sizes */
+@media screen and (max-width: 768px) {
+  * {
+    font-size: 14px; /* Example adjustment for smaller screens */
+  }
+}
 
+@media screen and (max-width: 480px) {
+  * {
+    font-size: 12px; /* Example adjustment for even smaller screens */
+  }
+}
 @media (min-width: 800px) {
   #root > section {
     margin: 0 100px;
