@@ -1,6 +1,5 @@
-import React from "react";
+import React, { StrictMode } from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter } from 'react-router-dom';
 import App from "./App";
 import { initUsers } from "./data/repository";
 import "./index.css";
@@ -12,9 +11,11 @@ initUsers();
 
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App/>
-  </BrowserRouter>,
+
+  <StrictMode>
+  <App />
+</StrictMode>
+,
   document.getElementById('root')
 )
 
