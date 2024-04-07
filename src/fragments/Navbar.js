@@ -53,6 +53,9 @@ function Navbar(props) {
               <li className="nav-item login-button">
                 <Link className="nav-link " to="/login" onClick={() => handleItemClick("Login")}>Login</Link>
               </li>
+              <li className="nav-item login-button">
+                <Link className="nav-link " to="/signup" onClick={() => handleItemClick("Login")}>SignUp</Link>
+              </li>
               </>
               :
               <>
@@ -66,6 +69,7 @@ function Navbar(props) {
                 <li className="nav-item">
                   <Link className="nav-link" to="/forum" onClick={() => handleItemClick("Forum")}>Forum</Link>
                 </li>
+
                 <li className="nav-item login-button">
                   <Link className="nav-link" to="/login" onClick={() => { handleItemClick("Login"); props.logoutUser(); }}>Logout</Link>
                 </li>

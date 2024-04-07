@@ -7,6 +7,7 @@ import Forum from "./pages/Forum";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import MyProfile from "./pages/MyProfile";
+import SignUp from "./pages/SignUp";
 
 function App() {
   const [username, setUsername] = useState(getUser());
@@ -38,6 +39,7 @@ function App() {
               <Route path="/login" element={<Login loginUser={loginUser} />} />
               <Route path="/profile" element={<MyProfile username={username} />} />
               <Route path="/forum" element={<Forum username={username} />} />
+              <Route path="/signup" element={<SignUp username={username} />} />
             </Routes>
           </div>
         </main>
