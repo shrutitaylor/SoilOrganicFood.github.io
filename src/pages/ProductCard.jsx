@@ -14,59 +14,79 @@ const ProductCard = (props) => {
   const products = [
     {
       id: 1,
-      name: "Product 1",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      price: "$19.99",
-      image: "product1.jpg"
+      name: "Tomato",
+      description: "Healthy organic tomatoes grown in our organic farm - Sold in kilograms",
+      price: "$9.99",
+      image: "https://images.unsplash.com/photo-1561136594-7f68413baa99?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       id: 2,
-      name: "Product 2",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      price: "$24.99",
-      image: "product2.jpg"
+      name: "Radish",
+      description: "Healthy organic tomatoes grown in our organic farm - Sold in kilograms",
+      price: "$4.99",
+      image: "https://images.unsplash.com/photo-1593026122758-19bebc625104?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       id: 3,
-      name: "Product 3",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      price: "$29.99",
-      image: "product3.jpg"
+      name: "Lemon",
+      description: "Healthy organic Lemons grown in our organic farm - Sold in kilograms",
+      price: "$9.99",
+      image: "https://images.unsplash.com/photo-1587496679742-bad502958fbf?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       id: 4,
-      name: "Product 4",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      price: "$29.99",
-      image: "product4.jpg"
+      name: "Farm Eggs",
+      description: "Healthy organic Lemons grown in our organic farm - Sold in dozen - 12 per dozen",
+      price: "$12.99",
+      image: "https://images.unsplash.com/photo-1498654077810-12c21d4d6dc3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       id: 5,
-      name: "Product 5",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      price: "$29.99",
-      image: "product5.jpg"
+      name: "Honey",
+      description:  "Healthy organic honey produced by the bees, grown by our authentic bee farms. Sold per 500ml",
+      price: "$10.50",
+      image: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       id: 6,
-      name: "Product 6",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      price: "$29.99",
-      image: "product6.jpg"
+      name: "Milk",
+      description: "Healthy organic Milk extracted from our farm grown Cows. Fresh from the Cow farms, no preservative added. Sold per liter",
+      price: "$5.99",
+      image: "https://images.unsplash.com/photo-1559598467-f8b76c8155d0?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
   ];
 
   const addToCart = (product) => {
-    const isProductInCart = cart.some(item => item.id === product.id);
-    if (isProductInCart) {
-      setPopupMessage(`${product.name} is already in the cart.`);
+    // Check if user is logged in
+    if (props.username) {
+      const storedCart = JSON.parse(localStorage.getItem(`cart_${props.username}`)) || [];
+      const isProductInCart = storedCart.some(item => item.id === product.id);
+      if (isProductInCart) {
+        setPopupMessage(`${product.name} is already in the cart.`);
+      } else {
+        const productWithUsername = { ...product, username: props.username };
+        const updatedCart = [...storedCart, productWithUsername];
+        localStorage.setItem(`cart_${props.username}`, JSON.stringify(updatedCart));
+        setPopupMessage(`${product.name} has been added to the cart.`);
+      }
     } else {
-      const productWithUsername = { ...product, username: props.username };
-      setCart([...cart, productWithUsername]);
-      localStorage.setItem('cart', JSON.stringify([...cart, productWithUsername]));
-      setPopupMessage(`${product.name} has been added to the cart.`);
+      // If user is not logged in, show a message or redirect to login page
+      setPopupMessage('Please log in to add products to the cart.');
+      // Optionally, you can redirect to the login page here
     }
   };
+  
+  useEffect(() => {
+    // Load existing cart from local storage
+    if (props.username) {
+      const storedCart = JSON.parse(localStorage.getItem(`cart_${props.username}`));
+      if (storedCart) {
+        setCart(storedCart);
+      }
+    }
+  }, [props.username]);
+  
+  
   
   const openReviewModal = (product) => {
     setSelectedProduct(product);
@@ -138,7 +158,9 @@ const ProductCard = (props) => {
                   <p className="product-description">{product.description}</p>
                   <p className="product-price">{product.price}</p>
                   <button onClick={() => addToCart(product)} className="add-to-cart">Add to Cart</button>
-                  <button onClick={() => openReviewModal(product)} className="review-btn">Review</button>
+                  {props.username && (
+                    <button onClick={() => openReviewModal(product)} className="review-btn">Review</button>
+                  )}
                 </div>
               </div>
             ))}

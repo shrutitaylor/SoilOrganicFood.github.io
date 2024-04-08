@@ -15,6 +15,7 @@ const Cart = (props) => {
     const updatedCart = cart.filter(item => item.id !== productId);
     setCart(updatedCart);
     localStorage.setItem('cart', JSON.stringify(updatedCart));
+    console.log(props.username);
   };
 
   const adjustQuantity = (productId, newQuantity) => {
