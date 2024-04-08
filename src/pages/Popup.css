@@ -1,0 +1,21 @@
+.popup {
+    position: fixed;
+    bottom: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #6a6f4c;
+    border: 1px solid #6a6f4c;
+    color: #ede1d2;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+  }
+  
+  .popup.visible {
+    visibility: visible;
+    opacity: 1;
+  }
+  

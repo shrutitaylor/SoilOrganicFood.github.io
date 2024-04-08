@@ -11,11 +11,15 @@ function initUsers() {
   const users = [
     {
       username: "shruti",
-      password: "123"
+      password: "123def"
     },
     {
       username: "shekhar",
-      password: "def456"
+      password: "def4562"
+    },
+    {
+      username: "avinash",
+      password: "abc123"
     }
   ];
 

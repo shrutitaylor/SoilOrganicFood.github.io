@@ -1,0 +1,122 @@
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.product-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #cbb89d;
+  overflow: hidden;
+  width: calc(33.33% - 20px);
+  margin-bottom: 20px;
+  box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+}
+
+.product-details {
+  padding: 20px;
+}
+
+.product-name {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.product-description {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.add-to-cart {
+  background-color: #6a6f4c;
+  color: #ede1d2;
+  border: none;
+  padding: 8px 16px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+  background-color: #484c33;;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 992px) {
+  .product-card {
+    width: calc(50% - 20px);
+  }
+}
+
+/* Media query for even smaller screens */
+@media (max-width: 576px) {
+  .product-card {
+    width: calc(100% - 20px);
+  }
+}
+
+/* Modal CSS */
+.review-btn {
+  background-color: #6a6f4c;
+  color: #ede1d2;
+  border: none;
+  padding: 8px 16px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  float: right;
+}
+
+.review-btn:hover {
+  background-color: #484c33;
+}
+
+.review-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ede1d2; /* Background color */
+  width: 80%; /* Adjust width as needed */
+  max-width: 400px; /* Set a maximum width */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000; /* Ensure it appears on top of other content */
+}
+
+.modal-content {
+  background-color: #cbb89d; /* Content background color */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #412f26; /* Close button color */
+}
+
+.close:hover {
+  color: #5c4738; /* Close button hover color */
+}
+
+

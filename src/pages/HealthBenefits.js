@@ -15,7 +15,7 @@ export default function AccordionUsage() {
         
       <Accordion defaultExpanded className='accordian' >
         <AccordionSummary
-          expandIcon={<span class="material-symbols-outlined">expand_more </span>}
+          expandIcon={<span className="material-symbols-outlined">expand_more </span>}
           aria-controls="panel1-content"
           id="panel1-header"
         >
@@ -31,7 +31,7 @@ export default function AccordionUsage() {
 
       <Accordion className='accordian-split' >
         <AccordionSummary
-          expandIcon={<span class="material-symbols-outlined">expand_more </span>}
+          expandIcon={<span className="material-symbols-outlined">expand_more </span>}
           aria-controls="panel2-content"
           id="panel2-header"
         >
@@ -43,7 +43,7 @@ export default function AccordionUsage() {
       </Accordion>
       <Accordion  className='accordian' >
         <AccordionSummary
-          expandIcon={<span class="material-symbols-outlined">expand_more </span>}
+          expandIcon={<span className="material-symbols-outlined">expand_more </span>}
           aria-controls="panel1-content"
           id="panel1-header"
         >
@@ -56,7 +56,7 @@ export default function AccordionUsage() {
 
       <Accordion className='accordian-split' >
         <AccordionSummary
-          expandIcon={<span class="material-symbols-outlined">expand_more </span>}
+          expandIcon={<span className="material-symbols-outlined">expand_more </span>}
           aria-controls="panel2-content"
           id="panel2-header"
         >
@@ -69,7 +69,7 @@ export default function AccordionUsage() {
 
       <Accordion  className='accordian' >
         <AccordionSummary
-          expandIcon={<span class="material-symbols-outlined">expand_more </span>}
+          expandIcon={<span className="material-symbols-outlined">expand_more </span>}
           aria-controls="panel1-content"
           id="panel1-header"
         >
@@ -81,7 +81,7 @@ export default function AccordionUsage() {
 
       <Accordion className='accordian-split' >
         <AccordionSummary
-          expandIcon={<span class="material-symbols-outlined">expand_more </span>}
+          expandIcon={<span className="material-symbols-outlined">expand_more </span>}
           aria-controls="panel2-content"
           id="panel2-header"
         >
@@ -93,7 +93,7 @@ export default function AccordionUsage() {
       
       <Accordion  className='accordian' >
         <AccordionSummary
-          expandIcon={<span class="material-symbols-outlined">expand_more </span>}
+          expandIcon={<span className="material-symbols-outlined">expand_more </span>}
           aria-controls="panel1-content"
           id="panel1-header"
         >
@@ -104,7 +104,7 @@ export default function AccordionUsage() {
 
       <Accordion className='accordian-split' >
         <AccordionSummary
-          expandIcon={<span class="material-symbols-outlined">expand_more </span>}
+          expandIcon={<span className="material-symbols-outlined">expand_more </span>}
           aria-controls="panel2-content"
           id="panel2-header"
         >
@@ -117,7 +117,7 @@ export default function AccordionUsage() {
       
         <Accordion className='accordian' >
         <AccordionSummary
-          expandIcon={<span class="material-symbols-outlined">expand_more </span>}
+          expandIcon={<span className="material-symbols-outlined">expand_more </span>}
           aria-controls="panel2-content"
           id="panel2-header"
         >
@@ -129,7 +129,7 @@ export default function AccordionUsage() {
 
         <Accordion className='accordian-split' >
         <AccordionSummary
-          expandIcon={<span class="material-symbols-outlined">expand_more </span>}
+          expandIcon={<span className="material-symbols-outlined">expand_more </span>}
           aria-controls="panel2-content"
           id="panel2-header"
         >
