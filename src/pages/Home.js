@@ -139,7 +139,7 @@ function Home(props) {
    
     
     <AccordionUsage/>
-    <ProductCard/>
+    <ProductCard username= {props.username}/>
     </>
   );
 }
