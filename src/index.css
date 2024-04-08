@@ -261,3 +261,22 @@ header nav {
   display: flex; /* Show overlay on hover */
   
 }
+.product{
+  display: flex;
+  align-items: center;
+  margin: 20px 50px 50px 50px;
+  left: 37%;
+  justify-content: space-evenly;
+}
+.product button {
+  border: 1px solid #5d2510;
+  background: #5d2510;
+  color: #ede1d2;
+
+  padding: 16px 26px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px; 
+  margin-top: 30px;
+
+}

@@ -38,3 +38,15 @@
   border: 1px solid #ccc;
   border-radius: 3px;
 }
+
+.paynow-btn{
+  margin-left: 10px;
+  align-self:flex-end;
+  background-color: #5d2510;
+  color: #ede1d2;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
