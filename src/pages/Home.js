@@ -1,5 +1,6 @@
 import React from "react";
 import { default as sliderClick } from 'react-card-slider-component';
+import { Link } from "react-router-dom";
 import AccordionUsage from "./HealthBenefits";
 import ProductCard from "./ProductCard";
 function Home(props) {
@@ -140,6 +141,9 @@ function Home(props) {
     
     <AccordionUsage/>
     <ProductCard username= {props.username}/>
+    <div className='product'>
+    <button ><Link className="nav-link" style={{color:'#ede1d2'}} to="/products">View more Products</Link></button>
+    </div>
     </>
   );
 }
