@@ -51,6 +51,9 @@ function Navbar(props) {
                   <Link className="nav-link" to="/" onClick={() => handleItemClick("Home")}>Home</Link>
                 </li>
                 <li className="nav-item">
+                  <Link className="nav-link" to="/products" onClick={() => handleItemClick("Shop")}>Shop</Link>
+                </li>
+                <li className="nav-item">
                   <Link className="nav-link" to="/specialsPage" onClick={() => handleItemClick("Home")}>Specials</Link>
                 </li>
               <li className="nav-item login-button">
@@ -68,6 +71,9 @@ function Navbar(props) {
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/profile" onClick={() => handleItemClick("My Profile")}>Profile</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/products" onClick={() => handleItemClick("Shop")}>Shop</Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/specialsPage" onClick={() => handleItemClick("Home")}>Specials</Link>

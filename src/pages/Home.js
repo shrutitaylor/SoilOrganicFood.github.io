@@ -1,6 +1,5 @@
 import React from "react";
 import { default as sliderClick } from 'react-card-slider-component';
-import CardCarousel from "./CardCarousel";
 import AccordionUsage from "./HealthBenefits";
 import ProductCard from "./ProductCard";
 function Home(props) {
@@ -138,7 +137,7 @@ function Home(props) {
 
     
    
-    <CardCarousel cards={cardsData} />
+    
     <AccordionUsage/>
     <ProductCard/>
     </>

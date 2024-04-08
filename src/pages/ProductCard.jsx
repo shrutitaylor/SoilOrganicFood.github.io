@@ -9,6 +9,7 @@ const ProductCard = (props) => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [reviewData, setReviewData] = useState({ stars: 0, review: '' });
   const [reviews, setReviews] = useState({}); // State to store reviews for each product
+  const [editIndex, setEditIndex] = useState(-1); // Index of the review being edited
 
   const products = [
     {
@@ -45,6 +46,13 @@ const ProductCard = (props) => {
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       price: "$29.99",
       image: "product5.jpg"
+    },
+    {
+      id: 6,
+      name: "Product 6",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      price: "$29.99",
+      image: "product6.jpg"
     }
   ];
 
@@ -63,28 +71,35 @@ const ProductCard = (props) => {
   const openReviewModal = (product) => {
     setSelectedProduct(product);
     setReviewData({ stars: 0, review: '' });
+    setEditIndex(-1); // Reset edit index when opening modal
   };
 
   const closeReviewModal = () => {
     setSelectedProduct(null);
+    setEditIndex(-1); // Reset edit index when closing modal
   };
 
   const handleReviewSubmit = () => {
-    // Implementation for submitting review
-    console.log("Review submitted:", reviewData);
-
-    // Update reviews state for the selected product
-    const updatedReviews = {
-      ...reviews,
-      [selectedProduct.id]: [...(reviews[selectedProduct.id] || []), reviewData]
-    };
-    setReviews(updatedReviews);
-
-    // Store reviews in local storage
-    localStorage.setItem('reviews', JSON.stringify(updatedReviews));
+    if (editIndex === -1) {
+      // Adding a new review
+      const updatedReviews = {
+        ...reviews,
+        [selectedProduct.id]: [...(reviews[selectedProduct.id] || []), reviewData]
+      };
+      setReviews(updatedReviews);
+      localStorage.setItem('reviews', JSON.stringify(updatedReviews));
+    } else {
+      // Editing an existing review
+      const updatedReviews = { ...reviews };
+      updatedReviews[selectedProduct.id][editIndex] = reviewData;
+      setReviews(updatedReviews);
+      localStorage.setItem('reviews', JSON.stringify(updatedReviews));
+      setEditIndex(-1); // Reset edit index after editing
+    }
 
     closeReviewModal();
   };
+
   const deleteReview = (productId, index) => {
     const updatedReviews = { ...reviews };
     updatedReviews[productId].splice(index, 1); // Remove the review at the given index
@@ -92,6 +107,12 @@ const ProductCard = (props) => {
     localStorage.setItem('reviews', JSON.stringify(updatedReviews));
   };
 
+  const editReview = (index) => {
+    console.log("Editing review at index:", index);
+    setEditIndex(index);
+    setReviewData({ ...reviews[selectedProduct.id][index] }); // Set review data for editing
+    openReviewModal(selectedProduct); // Make sure to open the modal
+  };
   useEffect(() => {
     // Load existing reviews from local storage
     const storedReviews = JSON.parse(localStorage.getItem('reviews'));
@@ -102,6 +123,10 @@ const ProductCard = (props) => {
 
   return (
     <>
+    <div style={{alignItems:'center', display:'flex',flexDirection:'column',margin:'50px 0 50px 0'}}>
+    <h2 style={{color: '#5d2510', fontWeight:'800'}}>Products</h2>
+      <h3>Want to know what we offer?</h3>
+      </div>
       <section className="main intro" style={{ marginTop: '0', paddingTop: '0' }}>
         <div className="intro_section">
           <div className="product-container">
@@ -125,34 +150,47 @@ const ProductCard = (props) => {
         <div className="review-modal">
           <div className="modal-content">
             <span className="close" onClick={closeReviewModal}>&times;</span>
-             {/* Display existing reviews */}
-             {reviews[selectedProduct.id] && (
+            {/* Display existing reviews for the selected product */}
+            {reviews[selectedProduct.id] && reviews[selectedProduct.id].length > 0 && (
               <div>
                 <h3>Existing Reviews</h3>
                 <ul>
-                  {reviews[selectedProduct.id].map((review, index) => (
-                   <li key={index}>
-                   <div>Stars: {review.stars}</div>
-                   <div>Review: {review.review}</div>
-                   <button onClick={() => deleteReview(selectedProduct.id, index)}>Delete</button>
-                 </li>
-                  ))}
+                {reviews[selectedProduct.id].map((review, index) => (
+  <li key={index}>
+    <div className="stars">
+      {[...Array(5)].map((_, i) => (
+        <span key={i} className={i < review.stars ? "material-symbols-outlined filled-star" : "material-symbols-outlined outlined"}>star</span>
+      ))}
+    </div>
+    {editIndex === index ? (
+      <textarea
+        value={reviewData.review}
+        onChange={(e) => setReviewData({ ...reviewData, review: e.target.value })}
+      />
+    ) : (
+      <div className="review">{review.review}</div>
+    )}
+    <span className="material-symbols-outlined edit-icon" onClick={() => editReview(index)}>edit</span>
+    <span className="material-symbols-outlined delete_icon" onClick={() => deleteReview(selectedProduct.id, index)}>delete</span>
+  </li>
+))}
+
                 </ul>
               </div>
             )}
-            <h2>Leave a Review</h2>
-            <p>Product: {selectedProduct.name}</p>
-           
-            {/* Review form */}
-            <label>Stars: </label>
-            <input type="number" min="1" max="5" value={reviewData.stars} onChange={(e) => setReviewData({ ...reviewData, stars: e.target.value })} />
-            <label>Review: </label>
-            <textarea value={reviewData.review} onChange={(e) => setReviewData({ ...reviewData, review: e.target.value })}></textarea>
-            <button onClick={handleReviewSubmit}>Submit</button>
+            <div className='leave-review'>
+              <h2>{editIndex === -1 ? 'Leave a Review' : 'Edit Review'}</h2>
+              <p>Product: {selectedProduct.name}</p>
+              {/* Review form */}
+              <label>Stars: </label>
+              <input type="number" min="1" max="5" value={Math.min(reviewData.stars, 5)} onChange={(e) => setReviewData({ ...reviewData, stars: e.target.value })} />
+              <label>Review: </label>
+              <textarea value={reviewData.review} onChange={(e) => setReviewData({ ...reviewData, review: e.target.value })}></textarea>
+              <button className='submit-btn' onClick={handleReviewSubmit}>{editIndex === -1 ? 'Submit' : 'Update'}</button>
+            </div>
           </div>
         </div>
       )}
-      
     </>
   );
 };

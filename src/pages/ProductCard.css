@@ -91,12 +91,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #ede1d2; /* Background color */
-  width: 80%; /* Adjust width as needed */
+  
+  width: 90%; /* Adjust width as needed */
   max-width: 400px; /* Set a maximum width */
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px  rgba(0, 0, 0, 0.413);
   z-index: 1000; /* Ensure it appears on top of other content */
 }
 
@@ -118,5 +118,100 @@
 .close:hover {
   color: #5c4738; /* Close button hover color */
 }
+
+.delete_icon:hover {
+  color: #d6a989; /* Close button hover color */
+  cursor: pointer;
+}
+/* ProductCard.css */
+
+@keyframes modalopen {
+  from {opacity: 0}
+  to {opacity: 1}
+}
+
+/* Add this CSS to your ProductCard.css file */
+/* Add this CSS to your ProductCard.css file */
+
+/* Existing reviews */
+.review-modal .modal-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.review-modal .modal-content ul li {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+}
+
+.review-modal .modal-content ul li:last-child {
+  border-bottom: none;
+}
+
+.review-modal .modal-content ul li .stars {
+  margin-right: 10px;
+}
+
+.review-modal .modal-content ul li .stars i {
+  color: #c49402; /* Star color */
+}
+
+.review-modal .modal-content ul li .review {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.review-modal .modal-content ul li .delete-icon {
+  color: #cbb89d; /* Delete icon color */
+  cursor: pointer;
+}
+
+.review-modal .modal-content ul li .delete-icon:hover {
+  color: #ede1d2; /* Hover color */
+}
+
+
+ /* Yellow color for filled stars */
+ .material-symbols-outlined.outlined{
+  color: #412f26;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+ }
+
+ .material-symbols-outlined.filled-star {
+  color: #c49402; 
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.submit-btn {
+  background-color: #6a6f4c;
+  color: #ede1d2;
+  width: 100%;
+ 
+}
+.leave-review{
+  background-color: #ede1d2;
+  padding: 20px;
+  border-radius: 10px;
+  
+  flex-direction: column;
+  display: flex;
+  width: 90%;
+}
+
+.edit-icon {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
 
 
