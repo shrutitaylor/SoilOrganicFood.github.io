@@ -3,12 +3,14 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { getUser, removeUser } from "./data/repository";
 import Footer from "./fragments/Footer";
 import Navbar from "./fragments/Navbar";
+import Cart from "./pages/Cart";
 import Forum from "./pages/Forum";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import MyProfile from "./pages/MyProfile";
+import ProductsPage from "./pages/ProductsPage";
 import SignUp from "./pages/SignUp";
-
+import SpecialsPage from "./pages/SpecialsPage";
 function App() {
   const [username, setUsername] = useState(getUser());
   const [page, setPage] = useState("");
@@ -40,6 +42,10 @@ function App() {
               <Route path="/profile" element={<MyProfile username={username} />} />
               <Route path="/forum" element={<Forum username={username} />} />
               <Route path="/signup" element={<SignUp username={username} />} />
+
+              <Route path="/products" element={<ProductsPage username={username} />} />
+              <Route path="/specialsPage" element={<SpecialsPage username={username} />} />
+              <Route path="/cart" element={<Cart username={username} />} />
             </Routes>
           </div>
         </main>

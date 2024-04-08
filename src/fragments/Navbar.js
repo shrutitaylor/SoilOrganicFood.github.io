@@ -50,11 +50,17 @@ function Navbar(props) {
               <li className="nav-item">
                   <Link className="nav-link" to="/" onClick={() => handleItemClick("Home")}>Home</Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/products" onClick={() => handleItemClick("Shop")}>Shop</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/specialsPage" onClick={() => handleItemClick("Home")}>Specials</Link>
+                </li>
               <li className="nav-item login-button">
                 <Link className="nav-link " to="/login" onClick={() => handleItemClick("Login")}>Login</Link>
               </li>
               <li className="nav-item login-button">
-                <Link className="nav-link " to="/signup" onClick={() => handleItemClick("Login")}>SignUp</Link>
+                <Link className="nav-link " to="/signup" onClick={() => handleItemClick("Signup")}>SignUp</Link>
               </li>
               </>
               :
@@ -67,9 +73,17 @@ function Navbar(props) {
                   <Link className="nav-link" to="/profile" onClick={() => handleItemClick("My Profile")}>Profile</Link>
                 </li>
                 <li className="nav-item">
+                  <Link className="nav-link" to="/products" onClick={() => handleItemClick("Shop")}>Shop</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/specialsPage" onClick={() => handleItemClick("Home")}>Specials</Link>
+                </li>
+                <li className="nav-item">
                   <Link className="nav-link" to="/forum" onClick={() => handleItemClick("Forum")}>Forum</Link>
                 </li>
-
+                <li className="nav-item">
+                  <Link className="nav-link" to="/cart" onClick={() => handleItemClick("Cart")}>Cart</Link>
+                </li>
                 <li className="nav-item login-button">
                   <Link className="nav-link" to="/login" onClick={() => { handleItemClick("Login"); props.logoutUser(); }}>Logout</Link>
                 </li>
