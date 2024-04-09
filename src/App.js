@@ -4,6 +4,7 @@ import { getUser, removeUser } from "./data/repository";
 import Footer from "./fragments/Footer";
 import Navbar from "./fragments/Navbar";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/CheckoutPage";
 import Forum from "./pages/Forum";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -14,7 +15,7 @@ import SpecialsPage from "./pages/SpecialsPage";
 function App() {
   const [username, setUsername] = useState(getUser());
   const [page, setPage] = useState("");
-
+  const [cart, setCart] = useState([]);
 
   const loginUser = (username,page) => {
     setUsername(username);
@@ -45,7 +46,11 @@ function App() {
 
               <Route path="/products" element={<ProductsPage username={username} />} />
               <Route path="/specialsPage" element={<SpecialsPage username={username} />} />
-              <Route path="/cart" element={<Cart username={username} />} />
+              
+                <Route path="/cart" element={<Cart username={username}  />} />
+                <Route path="/checkout" element={<Checkout username={username}  />} />
+               
+             
             </Routes>
           </div>
         </main>
