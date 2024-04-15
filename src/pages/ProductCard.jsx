@@ -11,7 +11,8 @@ const ProductCard = (props) => {
   const [reviews, setReviews] = useState({}); // State to store reviews for each product
   const [editIndex, setEditIndex] = useState(-1); // Index of the review being edited
 
-
+  // Add username to review data
+  const reviewDataWithUsername = { ...reviewData, username: props.username };
 
   const addToCart = (product) => {
     // Check if user is logged in
@@ -43,8 +44,6 @@ const ProductCard = (props) => {
     }
   }, [props.username]);
   
-  
-  
   const openReviewModal = (product) => {
     setSelectedProduct(product);
     setReviewData({ stars: 0, review: '' });
@@ -61,16 +60,16 @@ const ProductCard = (props) => {
       // Adding a new review
       const updatedReviews = {
         ...reviews,
-        [selectedProduct.id]: [...(reviews[selectedProduct.id] || []), reviewData]
+        [selectedProduct.id]: [...(reviews[selectedProduct.id] || []), reviewDataWithUsername]
       };
       setReviews(updatedReviews);
-      localStorage.setItem('reviews', JSON.stringify(updatedReviews));
+      localStorage.setItem(`reviews_${props.username}`, JSON.stringify(updatedReviews));
     } else {
       // Editing an existing review
       const updatedReviews = { ...reviews };
-      updatedReviews[selectedProduct.id][editIndex] = reviewData;
+      updatedReviews[selectedProduct.id][editIndex] = reviewDataWithUsername;
       setReviews(updatedReviews);
-      localStorage.setItem('reviews', JSON.stringify(updatedReviews));
+      localStorage.setItem(`reviews_${props.username}`, JSON.stringify(updatedReviews));
       setEditIndex(-1); // Reset edit index after editing
     }
 
@@ -81,18 +80,22 @@ const ProductCard = (props) => {
     const updatedReviews = { ...reviews };
     updatedReviews[productId].splice(index, 1); // Remove the review at the given index
     setReviews(updatedReviews);
-    localStorage.setItem('reviews', JSON.stringify(updatedReviews));
+    localStorage.setItem(`reviews_${props.username}`, JSON.stringify(updatedReviews));
   };
 
-  const editReview = (index) => {
-    console.log("Editing review at index:", index);
-    setEditIndex(index);
-    setReviewData({ ...reviews[selectedProduct.id][index] }); // Set review data for editing
-    openReviewModal(selectedProduct); // Make sure to open the modal
+  const editReview = (index, username) => {
+    if (username === props.username) {
+      setEditIndex(index);
+      setReviewData({ ...reviews[selectedProduct.id][index] }); // Set review data for editing
+      openReviewModal(selectedProduct); // Make sure to open the modal
+    } else {
+      console.log("You are not allowed to edit this review.");
+    }
   };
+
   useEffect(() => {
     // Load existing reviews from local storage
-    const storedReviews = JSON.parse(localStorage.getItem('reviews'));
+    const storedReviews = JSON.parse(localStorage.getItem(`reviews_${props.username}`));
     if (storedReviews) {
       setReviews(storedReviews);
     }
@@ -100,9 +103,9 @@ const ProductCard = (props) => {
 
   return (
     <>
-    <div style={{alignItems:'center', display:'flex',flexDirection:'column',margin:'50px 0 50px 0'}}>
-    <h2 style={{color: '#5d2510', fontWeight:'800'}}>Products</h2>
-      <h3>Want to know what we offer?</h3>
+      <div style={{alignItems:'center', display:'flex',flexDirection:'column',margin:'50px 0 50px 0'}}>
+        <h2 style={{color: '#5d2510', fontWeight:'800'}}>Products</h2>
+        <h3>Want to know what we offer?</h3>
       </div>
       <section className="main intro" style={{ marginTop: '0', paddingTop: '0' }}>
         <div className="intro_section">
@@ -131,32 +134,41 @@ const ProductCard = (props) => {
             <span className="close" onClick={closeReviewModal}>&times;</span>
             {/* Display existing reviews for the selected product */}
             {reviews[selectedProduct.id] && reviews[selectedProduct.id].length > 0 && (
-              <div>
-                <h3>Existing Reviews</h3>
-                <ul>
-                {reviews[selectedProduct.id].map((review, index) => (
-  <li key={index}>
-    <div className="stars">
-      {[...Array(5)].map((_, i) => (
-        <span key={i} className={i < review.stars ? "material-symbols-outlined filled-star" : "material-symbols-outlined outlined"}>star</span>
+  <div>
+    <h3>Existing Reviews</h3>
+    <ul>
+      {reviews[selectedProduct.id].map((review, index) => (
+        <li key={index}>
+          <div className="review-header">
+            <span className="username">{review.username}</span>
+            <div className="stars">
+              {[...Array(5)].map((_, i) => (
+                <span key={i} className={i < review.stars ? "material-symbols-outlined filled-star" : "material-symbols-outlined outlined"}>star</span>
+              ))}
+            </div>
+          </div>
+          {editIndex === index ? (
+            <textarea
+              value={reviewData.review}
+              onChange={(e) => setReviewData({ ...reviewData, review: e.target.value })}
+            />
+          ) : (
+            <div className="review">{review.review}</div>
+          )}
+          {/* Render edit and delete icons only if current user matches the user who left the review */}
+          {props.username === review.username && (
+            <div className="review-actions">
+              <span className="material-symbols-outlined edit-icon" onClick={() => editReview(index, review.username)}>edit</span>
+              <span className="material-symbols-outlined delete_icon" onClick={() => deleteReview(selectedProduct.id, index)}>delete</span>
+            </div>
+          )}
+        </li>
       ))}
-    </div>
-    {editIndex === index ? (
-      <textarea
-        value={reviewData.review}
-        onChange={(e) => setReviewData({ ...reviewData, review: e.target.value })}
-      />
-    ) : (
-      <div className="review">{review.review}</div>
-    )}
-    <span className="material-symbols-outlined edit-icon" onClick={() => editReview(index)}>edit</span>
-    <span className="material-symbols-outlined delete_icon" onClick={() => deleteReview(selectedProduct.id, index)}>delete</span>
-  </li>
-))}
+    </ul>
+  </div>
+)}
 
-                </ul>
-              </div>
-            )}
+
             <div className='leave-review'>
               <h2>{editIndex === -1 ? 'Leave a Review' : 'Edit Review'}</h2>
               <p>Product: {selectedProduct.name}</p>

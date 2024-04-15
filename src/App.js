@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { getUser, removeUser } from "./data/repository";
-import Footer from "./fragments/Footer";
+import FooterNew from "./fragments/FooterNew";
 import Navbar from "./fragments/Navbar";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/CheckoutPage";
@@ -54,7 +54,7 @@ function App() {
             </Routes>
           </div>
         </main>
-        <Footer />
+        <FooterNew/>
       </Router>
     </div>
   );
