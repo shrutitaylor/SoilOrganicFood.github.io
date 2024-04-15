@@ -1,65 +1,53 @@
 import React from "react";
-import { default as sliderClick } from 'react-card-slider-component';
 import { Link } from "react-router-dom";
 import AccordionUsage from "./HealthBenefits";
 import ProductCard from "./ProductCard";
 function Home(props) {
-  const cardsData = [
-    
+  
+  const products = [
     {
-      title: "Brown Rice",
-      content: "This is the content of card 2.",
-      image:"https://plus.unsplash.com/premium_photo-1671130295823-78f170465794?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      price:"12.9",
-      quantity:'500g'
+      id: 1,
+      name: "Tomato",
+      description: "Healthy organic tomatoes grown in our organic farm - Sold in kilograms",
+      price: 9.99,
+      image: "https://images.unsplash.com/photo-1561136594-7f68413baa99?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "Red Kidney Beans",
-      content: "This is the content of card 3.",
-      image:"https://plus.unsplash.com/premium_photo-1671130295242-582789bd9861?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      price:"12.9",
-      quantity:'500g'
+      id: 2,
+      name: "Radish",
+      description: "Healthy organic tomatoes grown in our organic farm - Sold in kilograms",
+      price: 4.99,
+      image: "https://images.unsplash.com/photo-1593026122758-19bebc625104?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "Green Beans",
-      content: "This is the content of card 3.",
-      image:"https://images.unsplash.com/photo-1649257171206-37625b1f3b2f?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      price:"12.9",
-      quantity:'500g'
+      id: 3,
+      name: "Lemon",
+      description: "Healthy organic Lemons grown in our organic farm - Sold in kilograms",
+      price: 9.99,
+      image: "https://images.unsplash.com/photo-1587496679742-bad502958fbf?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "Card 5",
-      content: "This is the content of card 3.",
-      image:"https://picsum.photos/200/300",
-      price:"12.9",
-      quantity:'500g'
+      id: 4,
+      name: "Farm Eggs",
+      description: "Healthy organic Lemons grown in our organic farm - Sold in dozen - 12 per dozen",
+      price: 12.99,
+      image: "https://images.unsplash.com/photo-1498654077810-12c21d4d6dc3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "Card 5",
-      content: "This is the content of card 3.",
-      image:"https://picsum.photos/200/300",
-      price:"12.9",
-      quantity:'500g'
+      id: 5,
+      name: "Honey",
+      description:  "Healthy organic honey produced by the bees, grown by our authentic bee farms. Sold per 500ml",
+      price: 10.50,
+      image: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "Card 5",
-      content: "This is the content of card 3.",
-      image:"https://picsum.photos/200/300",
-      price:"12.9",
-      quantity:'500g'
-    },
-    
-    // Add more cards as needed
+      id: 6,
+      name: "Milk",
+      description: "Healthy organic Milk extracted from our farm grown Cows. Fresh from the Cow farms, no preservative added. Sold per liter",
+      price: 5.99,
+      image: "https://images.unsplash.com/photo-1559598467-f8b76c8155d0?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    }
   ];
-  const slides = [
-    {image:"https://picsum.photos/200/300",title:"This is a title",description:"This is a description",clickEvent:sliderClick},
-    {image:"https://picsum.photos/600/500",title:"This is a second title",description:"This is a second description",clickEvent:sliderClick},
-    {image:"https://picsum.photos/700/600",title:"This is a third title",description:"This is a third description",clickEvent:sliderClick},
-    {image:"https://picsum.photos/500/400",title:"This is a fourth title",description:"This is a fourth description",clickEvent:sliderClick},
-    {image:"https://picsum.photos/200/300",title:"This is a fifth title",description:"This is a fifth description",clickEvent:sliderClick},
-    {image:"https://picsum.photos/800/700",title:"This is a sixth title",description:"This is a sixth description",clickEvent:sliderClick},
-    {image:"https://picsum.photos/300/400",title:"This is a seventh title",description:"This is a seventh description",clickEvent:sliderClick},
-]
   
   return (
     // <div className="text-center">
@@ -140,7 +128,7 @@ function Home(props) {
    
     
     <AccordionUsage/>
-    <ProductCard username= {props.username}/>
+    <ProductCard username= {props.username} products={products}/>
     <div className='product'>
     <button ><Link className="nav-link" style={{color:'#ede1d2'}} to="/products">View more Products</Link></button>
     </div>
