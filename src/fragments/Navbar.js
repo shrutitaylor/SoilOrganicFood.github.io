@@ -78,9 +78,9 @@ function Navbar(props) {
                 <li className="nav-item">
                   <Link className="nav-link" to="/specialsPage" onClick={() => handleItemClick("Home")}>Specials</Link>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <Link className="nav-link" to="/forum" onClick={() => handleItemClick("Forum")}>Forum</Link>
-                </li>
+                </li> */}
                 <li className="nav-item">
                   <Link className="nav-link" to="/cart" onClick={() => handleItemClick("Cart")}>Cart</Link>
                 </li>

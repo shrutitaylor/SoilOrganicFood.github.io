@@ -33,3 +33,14 @@
     object-fit:cover;
     border-radius:4px;
 }
+
+@media screen and (width <= 800px) {
+    .accordian-details{
+        flex-direction: column;
+        margin: 0;
+    }
+    .accordian-details img{
+       width: 150px;
+    }
+    
+}

@@ -5,6 +5,12 @@
   
 }
 
+@media  screen and (width <=800px) {
+  .product-container {
+    padding-left: 15px;
+  }
+  
+}
 .product-card {
   border: 1px solid #ccc;
   border-radius: 5px;

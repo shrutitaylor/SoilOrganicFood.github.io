@@ -58,18 +58,17 @@ function Home(props) {
     //Reference -https://www.w3schools.com/howto/howto_css_flip_card.asp
     <>
    
-    <section className="main intro" style={{ marginTop: '0', paddingTop: '0' }}>
-      <div className="intro_section">
-        {/* Your image */}
-        {/* <img style={{ width: '100vw',height:'100vh', objectFit:'cover'}} src='https://images.unsplash.com/photo-1498522271744-cdd435c13f24?q=80&w=2075&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt="hi iam shruti" /> */}
-        <img style={{ width: '98.5vw',height:'100vh', objectFit:'cover'}} src='https://images.unsplash.com/photo-1620217349590-7b4e3ec6898a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' />
-        <div style={{  position: 'absolute',textAlign:'center', top: 0, left: 0, width: '100%', height: '100vh', backgroundColor:'rgba(0, 0, 0, 0.3)', color: "#ffffff", display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-        <h3 style={{ fontSize:'5.5vw', color: "#ede1d2", bottom: "50vh", left: "50%", }}>
-          Premium Organic<br></br> and FResh</h3>
-          <p style={{color:'#cbb89d', width: '50vw',bottom: "30vh", fontSize:'1.2vw'}}>
+    <section className="main home_intro" style={{ marginTop: '0', paddingTop: '0' }}>
+     
+       <div className="home_part_1"> 
+       <img src='https://images.unsplash.com/photo-1620217349590-7b4e3ec6898a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' />
+        <div className="home_text">
+        <h3 > Premium Organic<br></br> and FResh</h3>
+          <p  >
           Welcome to Soil, where we champion the beauty of organic living. Our mission is simple: to provide you with the freshest, most nutritious organic foods available. From farm to table, we prioritize quality, sustainability, and ethical farming practices. Join us in embracing a healthier, more vibrant lifestyle with Soil – your trusted source for all things organic.</p>
         </div>
-      </div>
+        </div>
+   
       </section>
       <section className="main intro" style={{ marginTop: '50px', paddingTop: '0' }}>
       <div className="intro_section">
@@ -113,13 +112,13 @@ function Home(props) {
     
     </section>
     
-    <section className="main intro" style={{ marginTop: '50px', paddingTop: '0', position: 'relative' }}>
-      <div className="intro_section">
-        <img style={{ width: '98.5vw', height: '90vh', objectFit: 'cover' }} src='https://images.unsplash.com/photo-1633932850276-4382027c868a?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'></img>
-        <div style={{  position: 'absolute', top: '50%',width:'100%', transform: 'translate(5%, -50%)', textAlign: 'left', backgroundColor: "rgba(0, 0, 0, 0.379)" ,padding:'20px'}}>
-          <h4 style={{ color:'#cbb89d', fontWeight:600, fontSize: '1.7vw' }}>Welcome to Soil</h4>
-          <h2 style={{ textAlign:'left', fontWeight:'800', fontSize: '3vw' }}> Your Source for Organic<br></br> Goodness!</h2>
-          <p style={{ fontWeight:600, fontSize: '1.2vw', color:'white' }}>At Soil, we believe in the power of nature to nourish and sustain us. Our passion lies in providing you with the freshest, highest quality organic foods, sourced directly from trusted farmers who share our commitment to sustainable agriculture.<br></br><br></br>Explore our bountiful selection of organic fruits, vegetables, grains, and more, carefully curated to bring the goodness of the earth to your table. Whether you're a seasoned organic enthusiast or just beginning your journey toward healthier living, Soil is here to support you every step of the way.<br></br><br></br>Join us in embracing a lifestyle that celebrates the vitality of organic farming, fosters community connections, and promotes the well-being of both people and planet. Together, let's cultivate a healthier, happier world, one organic bite at a time.</p>
+    <section className="main home_intro" style={{ marginTop: '50px', position: 'relative' }}>
+      <div className="home_part_1">
+        <img  src='https://images.unsplash.com/photo-1633932850276-4382027c868a?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'></img>
+        <div className="home_text ">
+          <h4 style={{ color:'#cbb89d', fontWeight:600, fontSize: '18px' }}>Welcome to Soil</h4>
+          <h2 style={{ color:'rgb(58 22 9)',textAlign:'center', fontWeight:'800', fontSize: '40px' }}> Your Source for Organic<br></br> Goodness!</h2>
+          <p style={{ color:'rgb(252 241 226)'}} >At Soil, we believe in the power of nature to nourish and sustain us. Our passion lies in providing you with the freshest, highest quality organic foods, sourced directly from trusted farmers who share our commitment to sustainable agriculture.<br></br><br></br>Explore our bountiful selection of organic fruits, vegetables, grains, and more, carefully curated to bring the goodness of the earth to your table. Whether you're a seasoned organic enthusiast or just beginning your journey toward healthier living, Soil is here to support you every step of the way.<br></br><br></br>Join us in embracing a lifestyle that celebrates the vitality of organic farming, fosters community connections, and promotes the well-being of both people and planet. Together, let's cultivate a healthier, happier world, one organic bite at a time.</p>
         </div>
       </div>
     </section>
