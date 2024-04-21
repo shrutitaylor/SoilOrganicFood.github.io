@@ -1,0 +1,68 @@
+.checkout-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .checkout-container h2 {
+    text-align: center;
+  }
+  
+  .checkout-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .checkout-form input[type="text"],
+  .checkout-form input[type="email"],
+  .checkout-form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .checkout-form input[type="text"],
+  .checkout-form input[type="email"],
+  .checkout-form input[type="text"]:focus,
+  .checkout-form input[type="email"]:focus,
+  .checkout-form textarea:focus {
+    outline: none;
+  }
+  
+  .checkout-form textarea {
+    resize: vertical;
+  }
+  
+  .checkout-form .error {
+    color: red;
+    margin-bottom: 10px;
+  }
+  
+  .checkout-form button {
+    padding: 10px;
+    background-color: #6A6F4C;
+    color: #ede1d2;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .checkout-form button:hover {
+    background-color: #585c40;
+  }
+  
+  .bill-details{
+    background-color: #ede1d2;
+    color: #5d2510;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0 0 20px 0;
+  }
+  

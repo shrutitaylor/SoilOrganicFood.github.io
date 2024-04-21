@@ -11,50 +11,8 @@ const ProductCard = (props) => {
   const [reviews, setReviews] = useState({}); // State to store reviews for each product
   const [editIndex, setEditIndex] = useState(-1); // Index of the review being edited
 
-  const products = [
-    {
-      id: 1,
-      name: "Tomato",
-      description: "Healthy organic tomatoes grown in our organic farm - Sold in kilograms",
-      price: 9.99,
-      image: "https://images.unsplash.com/photo-1561136594-7f68413baa99?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    },
-    {
-      id: 2,
-      name: "Radish",
-      description: "Healthy organic tomatoes grown in our organic farm - Sold in kilograms",
-      price: 4.99,
-      image: "https://images.unsplash.com/photo-1593026122758-19bebc625104?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    },
-    {
-      id: 3,
-      name: "Lemon",
-      description: "Healthy organic Lemons grown in our organic farm - Sold in kilograms",
-      price: 9.99,
-      image: "https://images.unsplash.com/photo-1587496679742-bad502958fbf?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    },
-    {
-      id: 4,
-      name: "Farm Eggs",
-      description: "Healthy organic Lemons grown in our organic farm - Sold in dozen - 12 per dozen",
-      price: 12.99,
-      image: "https://images.unsplash.com/photo-1498654077810-12c21d4d6dc3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    },
-    {
-      id: 5,
-      name: "Honey",
-      description:  "Healthy organic honey produced by the bees, grown by our authentic bee farms. Sold per 500ml",
-      price: 10.50,
-      image: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    },
-    {
-      id: 6,
-      name: "Milk",
-      description: "Healthy organic Milk extracted from our farm grown Cows. Fresh from the Cow farms, no preservative added. Sold per liter",
-      price: 5.99,
-      image: "https://images.unsplash.com/photo-1559598467-f8b76c8155d0?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    }
-  ];
+  // Add username to review data
+  const reviewDataWithUsername = { ...reviewData, username: props.username };
 
   const addToCart = (product) => {
     // Check if user is logged in
@@ -86,8 +44,6 @@ const ProductCard = (props) => {
     }
   }, [props.username]);
   
-  
-  
   const openReviewModal = (product) => {
     setSelectedProduct(product);
     setReviewData({ stars: 0, review: '' });
@@ -104,16 +60,16 @@ const ProductCard = (props) => {
       // Adding a new review
       const updatedReviews = {
         ...reviews,
-        [selectedProduct.id]: [...(reviews[selectedProduct.id] || []), reviewData]
+        [selectedProduct.id]: [...(reviews[selectedProduct.id] || []), reviewDataWithUsername]
       };
       setReviews(updatedReviews);
-      localStorage.setItem('reviews', JSON.stringify(updatedReviews));
+      localStorage.setItem(`reviews_${props.username}`, JSON.stringify(updatedReviews));
     } else {
       // Editing an existing review
       const updatedReviews = { ...reviews };
-      updatedReviews[selectedProduct.id][editIndex] = reviewData;
+      updatedReviews[selectedProduct.id][editIndex] = reviewDataWithUsername;
       setReviews(updatedReviews);
-      localStorage.setItem('reviews', JSON.stringify(updatedReviews));
+      localStorage.setItem(`reviews_${props.username}`, JSON.stringify(updatedReviews));
       setEditIndex(-1); // Reset edit index after editing
     }
 
@@ -124,18 +80,22 @@ const ProductCard = (props) => {
     const updatedReviews = { ...reviews };
     updatedReviews[productId].splice(index, 1); // Remove the review at the given index
     setReviews(updatedReviews);
-    localStorage.setItem('reviews', JSON.stringify(updatedReviews));
+    localStorage.setItem(`reviews_${props.username}`, JSON.stringify(updatedReviews));
   };
 
-  const editReview = (index) => {
-    console.log("Editing review at index:", index);
-    setEditIndex(index);
-    setReviewData({ ...reviews[selectedProduct.id][index] }); // Set review data for editing
-    openReviewModal(selectedProduct); // Make sure to open the modal
+  const editReview = (index, username) => {
+    if (username === props.username) {
+      setEditIndex(index);
+      setReviewData({ ...reviews[selectedProduct.id][index] }); // Set review data for editing
+      openReviewModal(selectedProduct); // Make sure to open the modal
+    } else {
+      console.log("You are not allowed to edit this review.");
+    }
   };
+
   useEffect(() => {
     // Load existing reviews from local storage
-    const storedReviews = JSON.parse(localStorage.getItem('reviews'));
+    const storedReviews = JSON.parse(localStorage.getItem(`reviews_${props.username}`));
     if (storedReviews) {
       setReviews(storedReviews);
     }
@@ -143,14 +103,14 @@ const ProductCard = (props) => {
 
   return (
     <>
-    <div style={{alignItems:'center', display:'flex',flexDirection:'column',margin:'50px 0 50px 0'}}>
-    <h2 style={{color: '#5d2510', fontWeight:'800'}}>Products</h2>
-      <h3>Want to know what we offer?</h3>
+      <div style={{alignItems:'center', display:'flex',flexDirection:'column',margin:'50px 0 50px 0'}}>
+        <h2 style={{color: '#5d2510', fontWeight:'800'}}>Products</h2>
+        <h3>Want to know what we offer?</h3>
       </div>
       <section className="main intro" style={{ marginTop: '0', paddingTop: '0' }}>
         <div className="intro_section">
           <div className="product-container">
-            {products.map(product => (
+            {props.products.map(product => (
               <div key={product.id} className="product-card">
                 <img src={product.image} alt={product.name} className="product-image" />
                 <div className="product-details">
@@ -174,32 +134,41 @@ const ProductCard = (props) => {
             <span className="close" onClick={closeReviewModal}>&times;</span>
             {/* Display existing reviews for the selected product */}
             {reviews[selectedProduct.id] && reviews[selectedProduct.id].length > 0 && (
-              <div>
-                <h3>Existing Reviews</h3>
-                <ul>
-                {reviews[selectedProduct.id].map((review, index) => (
-  <li key={index}>
-    <div className="stars">
-      {[...Array(5)].map((_, i) => (
-        <span key={i} className={i < review.stars ? "material-symbols-outlined filled-star" : "material-symbols-outlined outlined"}>star</span>
+  <div>
+    <h3>Existing Reviews</h3>
+    <ul>
+      {reviews[selectedProduct.id].map((review, index) => (
+        <li key={index}>
+          <div className="review-header">
+            <span className="username">{review.username}</span>
+            <div className="stars">
+              {[...Array(5)].map((_, i) => (
+                <span key={i} className={i < review.stars ? "material-symbols-outlined filled-star" : "material-symbols-outlined outlined"}>star</span>
+              ))}
+            </div>
+          </div>
+          {editIndex === index ? (
+            <textarea
+              value={reviewData.review}
+              onChange={(e) => setReviewData({ ...reviewData, review: e.target.value })}
+            />
+          ) : (
+            <div className="review">{review.review}</div>
+          )}
+          {/* Render edit and delete icons only if current user matches the user who left the review */}
+          {props.username === review.username && (
+            <div className="review-actions">
+              <span className="material-symbols-outlined edit-icon" onClick={() => editReview(index, review.username)}>edit</span>
+              <span className="material-symbols-outlined delete_icon" onClick={() => deleteReview(selectedProduct.id, index)}>delete</span>
+            </div>
+          )}
+        </li>
       ))}
-    </div>
-    {editIndex === index ? (
-      <textarea
-        value={reviewData.review}
-        onChange={(e) => setReviewData({ ...reviewData, review: e.target.value })}
-      />
-    ) : (
-      <div className="review">{review.review}</div>
-    )}
-    <span className="material-symbols-outlined edit-icon" onClick={() => editReview(index)}>edit</span>
-    <span className="material-symbols-outlined delete_icon" onClick={() => deleteReview(selectedProduct.id, index)}>delete</span>
-  </li>
-))}
+    </ul>
+  </div>
+)}
 
-                </ul>
-              </div>
-            )}
+
             <div className='leave-review'>
               <h2>{editIndex === -1 ? 'Leave a Review' : 'Edit Review'}</h2>
               <p>Product: {selectedProduct.name}</p>

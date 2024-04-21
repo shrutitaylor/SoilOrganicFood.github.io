@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Cart.css';
 
 const Cart = (props) => {
@@ -29,6 +30,7 @@ const Cart = (props) => {
     cart.forEach(item => {
       totalPrice += item.price * (item.quantity || 1);
     });
+    localStorage.setItem('totalPrice', totalPrice.toFixed(2)); // Store total price in localStorage
     return totalPrice.toFixed(2);
   };
 
@@ -65,8 +67,11 @@ const Cart = (props) => {
                   ))}
                   <li>Total: ${calculateTotalPrice()}</li>
                 </ul>
-                <button className='paynow-btn' onClick={() => console.log("Pay Now")}>Pay Now</button>
-              </div>
+               {/* Checkout button */}
+              <button className='paynow-btn'>
+                <Link style={{ color: '#ede1d2' }} to={{ pathname: "/checkout", state: { cart: cart } }}>Checkout</Link>
+              </button>
+            </div>
             </div>
           )}
         </div>
