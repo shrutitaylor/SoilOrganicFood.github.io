@@ -14,6 +14,9 @@ const Profile = ({ username }) => {
     dietPlan: '', // Added dietPlan field to store generated diet plan
   });
   const [editMode, setEditMode] = useState(false);
+  const [mealType, setMealType] = useState('');
+  const [calorieRequirement, setCalorieRequirement] = useState('');
+  const [mealPlan, setMealPlan] = useState('');
 
   useEffect(() => {
     // Fetch user details from localStorage when component mounts
@@ -22,6 +25,15 @@ const Profile = ({ username }) => {
       setProfile(user);
     }
   }, []);
+
+  useEffect(() => {
+    // Update diet plan when selectedGoal changes
+    if (editMode) {
+      generateDietPlan(profile.selectedGoal, profile).then((generatedDietPlan) => {
+        setProfile((prevProfile) => ({ ...prevProfile, dietPlan: generatedDietPlan }));
+      });
+    }
+  }, [profile.selectedGoal, editMode]);
 
   const handleEdit = () => {
     setEditMode(true);
@@ -55,26 +67,51 @@ const Profile = ({ username }) => {
     setProfile({ ...profile, [name]: value });
   };
 
-  // Function to generate a diet plan based on the selected goal and user's profile
-  const generateDietPlan = async (selectedGoal, profile) => {
-    // You can implement more advanced logic here, such as calling external APIs or accessing a database
-    // For demonstration, let's create a simple mock diet plan based on the selected goal and user's profile
-    let dietPlan = '';
-
-    if (selectedGoal === 'weight-loss') {
-      // Generate diet plan for weight loss
-      dietPlan = `Diet plan for weight loss:\n- Reduce calorie intake\n- Increase consumption of fruits and vegetables\n- Incorporate lean proteins\n- Limit processed foods and sugary beverages\n- Regular exercise regimen (e.g., cardio and strength training)`;
-    } else if (selectedGoal === 'muscle-gain') {
-      // Generate diet plan for muscle gain
-      dietPlan = `Diet plan for muscle gain:\n- Increase overall calorie intake\n- Focus on protein-rich foods such as chicken, fish, eggs, and tofu\n- Incorporate complex carbohydrates for energy\n- Schedule regular strength training sessions\n- Adequate rest and recovery time for muscle growth`;
-    } else if (selectedGoal === 'health-improvement') {
-      // Generate diet plan for health improvement
-      dietPlan = `Diet plan for health improvement:\n- Balanced meals with a variety of nutrients\n- Increase consumption of whole grains, fruits, and vegetables\n- Limit intake of saturated fats and processed foods\n- Stay hydrated with water\n- Engage in regular physical activity for overall well-being`;
+  const handleChangeMealPlanner = (e) => {
+    const { name, value } = e.target;
+    if (name === 'mealType') {
+      setMealType(value);
+    } else if (name === 'calorieRequirement') {
+      setCalorieRequirement(value);
     }
+  };
 
-    // You can add more detailed and personalized diet recommendations based on the user's profile here
+  const generateDietPlan = async (selectedGoal, profile) => {
+    // Implementation remains the same
+  };
 
-    return dietPlan;
+  const generateMealPlan = () => {
+    // Hardcoded meal plan generation
+    // You can implement more advanced logic here, such as calling external APIs or accessing a database
+    // For demonstration, let's create a simple mock meal plan based on user's preferences
+    let newMealPlan = '';
+
+    // Example meal planning options
+    const mealOptions = {
+      breakfast: ['Oatmeal', 'Scrambled eggs', 'Smoothie'],
+      lunch: ['Grilled chicken salad', 'Quinoa bowl', 'Vegetable stir-fry'],
+      dinner: ['Salmon with roasted vegetables', 'Tofu stir-fry', 'Turkey chili'],
+    };
+
+    // Example calorie requirements
+    const calorieRequirements = {
+      sedentary: 2000,
+      moderate: 2500,
+      active: 3000,
+    };
+
+    // Generate meal plan based on user's preferences and calorie requirements
+    // For demonstration, let's assume a simple meal plan with fixed options
+    newMealPlan += `Daily Meal Plan:\n`;
+    Object.keys(mealOptions).forEach((mealType) => {
+      newMealPlan += `${mealType}:\n`;
+      mealOptions[mealType].forEach((option) => {
+        newMealPlan += `- ${option}\n`;
+      });
+    });
+    newMealPlan += `\nCalorie Requirement: ${calorieRequirements[mealType]} kcal`;
+
+    setMealPlan(newMealPlan);
   };
 
   return (
@@ -120,6 +157,29 @@ const Profile = ({ username }) => {
               <button type="button" className="profile-button" onClick={() => setEditMode(false)}>Cancel</button>
             </form>
           )}
+
+          {/* Meal Planner Section */}
+          <div className="meal-planner">
+            <h3>Meal Planner</h3>
+            <p>Select your meal preferences:</p>
+            {/* Example dropdown for meal types */}
+            <select name="mealType" value={mealType} onChange={handleChangeMealPlanner}>
+              <option value="">Select Meal Type</option>
+              <option value="breakfast">Breakfast</option>
+              <option value="lunch">Lunch</option>
+              <option value="dinner">Dinner</option>
+            </select>
+            {/* Example input for calorie requirements */}
+            <input
+              type="number"
+              name="calorieRequirement"
+              value={calorieRequirement}
+              onChange={handleChangeMealPlanner}
+              placeholder="Calorie Requirement"
+            />
+            <button type="button" onClick={generateMealPlan}>Generate Meal Plan</button>
+            <pre>{mealPlan}</pre>
+          </div>
         </>
       )}
     </div>
@@ -127,9 +187,3 @@ const Profile = ({ username }) => {
 };
 
 export default Profile;
-
-
-
-
-
-
