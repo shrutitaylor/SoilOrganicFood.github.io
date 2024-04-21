@@ -1,0 +1,103 @@
+.personal-details,
+.health-details ,
+.meal-planner{
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  width: 80%;
+  background-color: #cbb89d;
+  color: #4a1515;
+  font-weight: 600;
+}
+.health-details h3,.personal-details h3,.meal-planner h3{
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+  background-color: #b4976d;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-button {
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 20px;
+  border: none;
+  border-radius: 4px;
+  width: 150px;
+  cursor: pointer;
+  
+}
+
+.edit-button {
+  background-color: #6a6f4c; /* Button color */
+  color: #fff5e8;
+  align-self: flex-start;
+ float: left;
+}
+
+.delete-button {
+  background-color: #a12e2e; /* Button color */
+  color: #fff5e8;
+  align-self: flex-end;
+  float: right;
+}
+.cancel-button {
+  background-color: #a12e2e; /* Button color */
+  color: #fff5e8;
+  
+ 
+}
+.edit-button:hover {
+  background-color: #5b6040; /* Button hover color */
+}
+
+.delete-button:hover {
+  background-color: #852626; /* Button hover color */
+}
+
+.buttons-div{
+  display: flex;
+  flex-direction: row;
+ 
+  margin-bottom: 20px;
+  width: 80%;
+}
+
+.edit-form{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  gap: 10px;
+  
+}
+.edit-form input{
+ padding: 5px;
+ border-radius: 5px;
+  margin: 10px;
+ 
+}
+.edit-form select{
+  padding: 5px;
+  border-radius: 5px;
+   margin: 10px;
+  
+ }
+ .meal-planner {
+
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  gap: 10px;
+  align-items: center;
+ }
+ .meal-planner select,  .meal-planner button{
+      padding: 5px;
+      border-radius: 5px;
+      width: 300px;
+ }

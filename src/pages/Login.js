@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { verifyUser } from "../data/repository";
-
+import './Login.css';
 function Login(props) {
   const [fields, setFields] = useState({ username: "", password: "" });
   const [errorMessage, setErrorMessage] = useState(null);
@@ -29,6 +29,7 @@ function Login(props) {
 
     // If verified login the user.
     if(verified === true) {
+      localStorage.setItem('user', JSON.stringify(fields.username));
       props.loginUser(fields.username, "Home"); //sending page name with the user
 
       // Navigate to the home page.
@@ -52,24 +53,25 @@ function Login(props) {
         <img style={{ width: '98.7vw',height:'40vh', objectFit:'cover'}} src='https://images.unsplash.com/photo-1498522271744-cdd435c13f24?q=80&w=2075&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt="hi iam shruti" />
         <h1 style={{ fontSize:'5em', color: "#0f2e0b", position: "absolute", top: "20vh", left: "50%", transform: "translateX(-50%)" }}>Login</h1>
        </div>
-    <div className="intro_content">
+    
+  
       {/* <h1>Login</h1> */}
-      <hr />
-      <div className="row">
-        <div className="col-md-6">
+      
+      <div className="intro_content">
+        <div className='login_container'>
           <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="username" className="control-label">Username</label>
-              <input name="username" id="username" className="form-control"
+            <div >
+              <label htmlFor="username" >Username</label>
+              <input name="username" id="username" className="enter_input"
                 value={fields.username} onChange={handleInputChange} />
             </div>
-            <div className="form-group">
-              <label htmlFor="password" className="control-label">Password</label>
-              <input type="password" name="password" id="password" className="form-control"
+            <div >
+              <label htmlFor="password" >Password</label>
+              <input type="password" name="password" id="password" className="enter_input"
                 value={fields.password} onChange={handleInputChange} />
             </div>
-            <div className="form-group">
-              <input type="submit" className="btn btn-primary" value="Login" />
+            <div >
+              <input className="login-btn" type="submit" value="Login" />
             </div>
             {errorMessage !== null &&
               <div className="form-group">
@@ -79,7 +81,7 @@ function Login(props) {
           </form>
         </div>
       </div>
-    </div>
+    
 
     </section>
   );

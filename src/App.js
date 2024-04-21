@@ -8,8 +8,8 @@ import Checkout from "./pages/CheckoutPage";
 import Forum from "./pages/Forum";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import MyProfile from "./pages/MyProfile";
 import ProductsPage from "./pages/ProductsPage";
+import Profile from "./pages/Profile";
 import SignUp from "./pages/SignUp";
 import SpecialsPage from "./pages/SpecialsPage";
 function App() {
@@ -40,7 +40,7 @@ function App() {
               <Route path="/" element={<Home username={username} />} />
               <Route path="/SoilOrganicFood.github.io" element={<Home username={username} />} />
               <Route path="/login" element={<Login loginUser={loginUser} />} />
-              <Route path="/profile" element={<MyProfile username={username} />} />
+              <Route path="/profile" element={<Profile username={username} />} />
               <Route path="/forum" element={<Forum username={username} />} />
               <Route path="/signup" element={<SignUp username={username} />} />
 

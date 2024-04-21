@@ -39,7 +39,12 @@ const Cart = (props) => {
       <div className="intro_section">
         <div className="cart" style={{ margin: '100px' }}>
           {cart.length === 0 ? (
+            <>
             <p>The cart is empty!</p>
+            <div className='product'>
+            <button ><Link className="nav-link" style={{color:'#ede1d2'}} to="/products">View more Products</Link></button>
+            </div>
+            </>
           ) : (
             <div>
               <h2>Cart</h2>
