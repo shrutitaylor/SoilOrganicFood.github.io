@@ -35,6 +35,7 @@ const Cart = (props) => {
   };
 
   return (
+    
     <section className="main intro" style={{ marginTop: '0', paddingTop: '0' }}>
       <div className="intro_section">
         <div className="cart" style={{ margin: '100px' }}>
@@ -48,9 +49,34 @@ const Cart = (props) => {
           ) : (
             <div>
               <h2>Cart</h2>
+             
               <ul>
                 {cart.map((item, index) => (
-                  <li key={index}>
+                  <>
+                    <div className="cart-product-card">
+                    <div className="cart-product-image">
+                      <img src={item.image} alt={item.name} />
+                    </div>
+                    <div className="cart-product-details">
+                      <p>{item.name}</p>
+                      <h6>Price: ${item.price}</h6>
+                      <div className='input-div'>
+                      <label htmlFor="quantity"><h6>Quantity: </h6></label>
+                      <input
+                                    type="number"
+                                    value={item.quantity || 1}
+                                    onChange={(e) => adjustQuantity(item.id, parseInt(e.target.value))}
+                                    style={{fontSize:'18px'}}
+                                  />
+                                  </div>
+                    </div>
+                    <div className="material-symbols-outlined cart-delete-icon" onClick={() => removeFromCart(item.id)}>
+                      delete
+                        <span className="tooltip">Delete</span>
+                      </div>
+                    
+                  </div>
+                  {/* <li key={index}>
                     {item.name} - ${item.price} (Quantity:
                     <input
                       type="number"
@@ -59,7 +85,8 @@ const Cart = (props) => {
                     />
                     )
                     <button onClick={() => removeFromCart(item.id)}>Remove</button>
-                  </li>
+                  </li> */}
+                  </>
                 ))}
               </ul>
               <div>
