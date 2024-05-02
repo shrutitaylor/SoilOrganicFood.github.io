@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/SoilOrganicFood.github.io/static/css/main.6aff11bc.css",
-    "main.js": "/SoilOrganicFood.github.io/static/js/main.3cf4e946.js",
+    "main.css": "/SoilOrganicFood.github.io/static/css/main.2671d5a9.css",
+    "main.js": "/SoilOrganicFood.github.io/static/js/main.564f01fe.js",
     "static/js/787.3b8944ac.chunk.js": "/SoilOrganicFood.github.io/static/js/787.3b8944ac.chunk.js",
     "static/media/soillogo.png": "/SoilOrganicFood.github.io/static/media/soillogo.dd28321d1e30d6e04e82.png",
     "index.html": "/SoilOrganicFood.github.io/index.html",
-    "main.6aff11bc.css.map": "/SoilOrganicFood.github.io/static/css/main.6aff11bc.css.map",
-    "main.3cf4e946.js.map": "/SoilOrganicFood.github.io/static/js/main.3cf4e946.js.map",
+    "main.2671d5a9.css.map": "/SoilOrganicFood.github.io/static/css/main.2671d5a9.css.map",
+    "main.564f01fe.js.map": "/SoilOrganicFood.github.io/static/js/main.564f01fe.js.map",
     "787.3b8944ac.chunk.js.map": "/SoilOrganicFood.github.io/static/js/787.3b8944ac.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6aff11bc.css",
-    "static/js/main.3cf4e946.js"
+    "static/css/main.2671d5a9.css",
+    "static/js/main.564f01fe.js"
   ]
 }
