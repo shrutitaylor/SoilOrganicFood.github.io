@@ -11,7 +11,7 @@ export default function AccordionUsage() {
     <h2 style={{color: '#5d2510', fontWeight:'800'}}>Health Benefits</h2>
       <h3>Want to know what Organic food does?</h3>
       </div>
-    <div className='health'>
+    <div className='health' style={{padding: "100px"}}>
         
       <Accordion defaultExpanded className='accordian' >
         <AccordionSummary

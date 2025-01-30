@@ -30,7 +30,7 @@ const SmallerVegetableInfo = () => {
           }
       ]
   return (
-    <div className="smaller-vegetable-info-card">
+    <div className="smaller-vegetable-info-card " style={{margin:'20px'}}>
       <div className="card-content">
       <h2 className="heading">Grow Your Own Smaller Vegetables</h2>
         <p>

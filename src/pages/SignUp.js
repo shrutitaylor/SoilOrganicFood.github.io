@@ -44,7 +44,7 @@ const SignUp = () => {
     <>
      <section className="main intro" style={{ marginTop: '0', paddingTop: '0' }}>
       <div className="header_section">
-        <img src='https://images.unsplash.com/photo-1498522271744-cdd435c13f24?q=80&w=2075&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt="hi iam shruti" />
+        <img style={{ width: '100vw',height:'40vh', objectFit:'cover'}}  src='https://images.unsplash.com/photo-1498522271744-cdd435c13f24?q=80&w=2075&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt="hi iam shruti" />
         <h1>SignUp</h1>
        </div>
     </section>

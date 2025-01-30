@@ -35,7 +35,7 @@ function App() {
       
         <Navbar username={username} page={page} logoutUser={logoutUser} />
         <main role="main">
-          <div className="container my-0" >
+          <div className=" my-0" >
             <Routes>
               <Route path="/" element={<Home username={username} />} />
               <Route path="/SoilOrganicFood.github.io" element={<Home username={username} />} />

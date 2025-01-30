@@ -107,9 +107,9 @@ const ProductCard = (props) => {
         <h2 style={{color: '#5d2510', fontWeight:'800'}}>Products</h2>
         <h3>Want to know what we offer?</h3>
       </div>
-      <section className="main intro" style={{ marginTop: '0', paddingTop: '0' }}>
+      <section className="main intro" style={{ margin: '50px', paddingTop: '0' }}>
         <div className="intro_section">
-          <div className="product-container">
+          <div className="product-container ">
             {props.products.map(product => (
               <div key={product.id} className="product-card">
                 <img src={product.image} alt={product.name} className="product-image" />
