@@ -1,74 +1,94 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
+# Soil Organic Food
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Soil Organic Food Banner](https://images.unsplash.com/photo-1620217349590-7b4e3ec6898a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
 
-## Available Scripts
+**Soil Organic Food** is a modern, responsive, and user-friendly e-commerce website dedicated to providing fresh, organic, and sustainably sourced groceries. Built with **React** and **Bootstrap**, this project showcases a clean design, seamless navigation, and a focus on promoting healthy, organic living.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## **Features**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **User Authentication**: Login, Signup, and Logout functionality.
+- **Product Listings**: Browse a variety of organic products with detailed descriptions.
+- **Responsive Design**: Optimized for all screen sizes (desktop, tablet, mobile).
+- **Interactive UI**: Smooth animations and hover effects for an engaging user experience.
+- **Dynamic Routing**: Seamless navigation using React Router.
+- **Bootstrap Integration**: Clean and modern styling with Bootstrap components.
+- **Custom CSS**: Additional styling for a unique look and feel.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## **Technologies Used**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Frontend**:
+  - React.js
+  - React Router (for navigation)
+  - Bootstrap (for styling and responsiveness)
+  - CSS (custom styles)
 
-### `npm run build`
+- **Backend**:
+  - (Optional: Add backend details if applicable)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Tools**:
+  - npm (package management)
+  - Git (version control)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## **Live Demo**
 
-### `npm run eject`
+Check out the live demo of the project: [Soil Organic Food](https://shrutitaylor.github.io/SoilOrganicFood.github.io/)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## **Getting Started**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Follow these steps to set up the project locally on your machine.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### **Prerequisites**
 
-## Learn More
+- Node.js (v14 or higher)
+- npm (v6 or higher)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### **Installation**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/shrutitaylor/SoilOrganicFood.github.io.git
+   cd SoilOrganicFood.github.io
 
-### Code Splitting
+2. **Install dependencies**:
+   ```bash
+   npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. **Start Website**:
+   ```bash
+   npm run start
 
-### Analyzing the Bundle Size
+4. **Open the app**:
+   ```bash
+   http://localhost:3000
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Folder Structure
 
-### Making a Progressive Web App
+SoilOrganicFood.github.io/
+├── public/              # Static assets (e.g., index.html, images)
+├── src/                 # Source code
+│   ├── components/      # Reusable React components
+│   ├── pages/           # Page components (e.g., Home, Products)
+│   ├── App.js           # Main application component
+│   ├── index.js         # Entry point
+│   └── App.css          # Global styles
+├── package.json         # Project dependencies
+├── README.md            # Project documentation
+└── ...                  # Other configuration files
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# SoilOrganicFood-Assg
->>>>>>> c1b3605 (Initial commit)
+## Contact
+For any questions or feedback, feel free to reach out:
+Shruti Muthuvel Sujatha
+GitHub: @shrutitaylor
+Email: shrutirep1989@gmail.com
