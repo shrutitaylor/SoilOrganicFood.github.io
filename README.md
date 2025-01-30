@@ -26,9 +26,6 @@
   - Bootstrap (for styling and responsiveness)
   - CSS (custom styles)
 
-- **Backend**:
-  - (Optional: Add backend details if applicable)
-
 - **Tools**:
   - npm (package management)
   - Git (version control)
