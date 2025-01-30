@@ -68,17 +68,17 @@ Follow these steps to set up the project locally on your machine.
 
 ## Folder Structure
 
-SoilOrganicFood.github.io/
-├── public/              # Static assets (e.g., index.html, images)
-├── src/                 # Source code
-│   ├── components/      # Reusable React components
-│   ├── pages/           # Page components (e.g., Home, Products)
-│   ├── App.js           # Main application component
-│   ├── index.js         # Entry point
-│   └── App.css          # Global styles
-├── package.json         # Project dependencies
-├── README.md            # Project documentation
-└── ...                  # Other configuration files
+  SoilOrganicFood.github.io/
+  ├── public/              # Static assets (e.g., index.html, images)
+  ├── src/                 # Source code
+  │   ├── components/      # Reusable React components
+  │   ├── pages/           # Page components (e.g., Home, Products)
+  │   ├── App.js           # Main application component
+  │   ├── index.js         # Entry point
+  │   └── App.css          # Global styles
+  ├── package.json         # Project dependencies
+  ├── README.md            # Project documentation
+
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
